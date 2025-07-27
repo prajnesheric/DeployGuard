@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.step-inactive {
+    opacity: 0.4;
+    filter: grayscale(80%);
+}
+.step-active {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5); /* blue-500 */
+}
+.step-complete {
+    opacity: 0.8;
+    border-color: #22c55e; /* green-500 */
+}
+.arrow {
+    color: #6b7280; /* gray-500 */
+    transition: color 0.3s ease;
+}
+.arrow-lit {
+    color: #3b82f6; /* blue-500 */
+}
+.log-entry {
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+.log-ValidatorAgent { border-color: #3b82f6; } /* blue-500 */
+.log-Orchestration { border-color: #8b5cf6; } /* violet-500 */
+.log-ComplianceAgent { border-color: #ef4444; } /* red-500 */
+.log-system { border-color: #6b7280; } /* gray-500 */
+.glowing-border {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+}
+
+/* DataDog MCP Status Styles */
+.status-discovering {
+    border-color: #f59e0b; /* amber-500 */
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+.status-executing {
+    border-color: #8b5cf6; /* violet-500 */
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+.status-active {
+    border-color: #10b981; /* emerald-500 */
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* Status indicators for MCP process */
+.status-indicator {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+.status-indicator-discovering {
+    background-color: #f59e0b; /* amber-500 */
+    animation: pulse 1.5s infinite;
+}
+.status-indicator-executing {
+    background-color: #8b5cf6; /* violet-500 */
+    animation: pulse 1s infinite;
+}
+.status-indicator-active {
+    background-color: #10b981; /* emerald-500 */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
